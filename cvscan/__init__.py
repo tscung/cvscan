@@ -12,11 +12,15 @@ import language_parser as lp
 import json
 import dirpath
 import configurations
+import textract
+import sys  
+
+sys.setdefaultencoding('utf8')
 
 class Cvscan():
     def __init__(self, name, path = dirpath.RESUMEPATH):
-        self.path = path + '/' + name + '.pdf'
-        self.path = name + '.pdf'
+        self.path = path + '/' + name #+ '.pdf'
+        self.path = name #+ '.pdf'
 
         if self.exists():
             self.extract()
@@ -30,13 +34,14 @@ class Cvscan():
     # Currently only supports PDF
     def extract(self):
         # add functions to convert other formats to text
-        if self.path.find(".pdf") != -1:
-            self.raw_text = converter.pdf_to_txt(self.path)
+        # if self.path.find(".pdf") != -1:
+           # self.raw_text = converter.pdf_to_txt(self.path)
+        self.raw_text = textract.process(self.path)
 
-        if self.raw_text is not '':
-            self.parse()
-        else:
-            raise ValueError("Error extracting resume text.")
+        #if self.raw_text is not '':
+        #    self.parse()
+        #else:
+        #   raise ValueError("Error extracting resume text.")
 
     def parse(self):
         self.URLs = annotations_parser.fetch_pdf_urls(self.path)
