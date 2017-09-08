@@ -13,10 +13,11 @@ import json
 import dirpath
 import configurations
 import textract
-import sys  
 
-sys.setdefaultencoding('utf8')
-
+import sys
+reload(sys)
+#sys.setdefaultencoding('utf8')
+sys.setdefaultencoding('latin-1')
 class Cvscan():
     def __init__(self, name, path = dirpath.RESUMEPATH):
         self.path = path + '/' + name #+ '.pdf'
