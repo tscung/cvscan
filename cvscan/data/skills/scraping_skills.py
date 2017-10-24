@@ -56,9 +56,9 @@ if __name__ == "__main__":
   skills = []
   with open('skills','rb') as fp:
     skills = pickle.load(fp)
-  # links_to_check = []
-  # for c in ascii_lowercase:
-  #   links_to_check.append('https://www.linkedin.com/directory/topics-'+c+'/')
+    links_to_check = []
+    for c in ascii_lowercase:
+      links_to_check.append('https://www.linkedin.com/directory/topics-'+c+'/')
   skills.extend(fetch_all_skills(links_to_check))
   with open('skills','wb') as fp:
     pickle.dump(skills,fp)
