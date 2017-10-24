@@ -76,5 +76,6 @@ class Cvscan():
             "current_employers" : self.current_employers,
             "qualifications" : self.qualifications,
             "qualifications_info" : self.degree_info,
-            "extra_info" : self.extra_info
+            "extra_info" : self.extra_info,
+            "raw": self.raw_text
         })
