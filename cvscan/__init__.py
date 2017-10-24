@@ -13,7 +13,7 @@ import json
 import dirpath
 import configurations
 import textract
-
+import string
 import sys
 reload(sys)
 #sys.setdefaultencoding('utf8')
@@ -62,6 +62,8 @@ class Cvscan():
 
     # TODO: Add more fetch here
     def show(self):
+	printable = set(string.printable)
+	
         return json.dumps({
             "name" : self.name,
             "experience" : self.experience,
@@ -77,5 +79,5 @@ class Cvscan():
             "qualifications" : self.qualifications,
             "qualifications_info" : self.degree_info,
             "extra_info" : self.extra_info,
-            "raw": self.raw_text
+            "raw": filter(lambda x: x in printable, self.raw_text)
         })
