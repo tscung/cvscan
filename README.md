@@ -1,8 +1,26 @@
 # cvscan
 Your not so typical resume parser
+
+This run well both on Ubuntu and Mac OSX
+
+
 Instructions
 ========
+
+Preparation:
+
+sudo apt-get install python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+
+
+pip install textract
+
+import nltk
+>>> nltk.download()
+
+
 Follow these to have a sneak peek of what's going on  
+
+
 1. git clone https://github.com/tscung/cvscan.git  
 2. cd cvscan  
 3. python setup.py install  
