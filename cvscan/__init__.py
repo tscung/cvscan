@@ -37,7 +37,9 @@ class Cvscan():
         # add functions to convert other formats to text
         # if self.path.find(".pdf") != -1:
            # self.raw_text = converter.pdf_to_txt(self.path)
-        self.raw_text = textract.process(self.path)
+        raw = textract.process(self.path)
+
+        self.raw_text = " ".join(raw.split())
 
         #if self.raw_text is not '':
         #    self.parse()
